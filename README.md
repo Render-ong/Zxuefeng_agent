@@ -81,11 +81,7 @@ Xfeng_agent/
 <p>
 <img src="docs/images/img_suit.png" width="30%" />
 <img src="docs/images/image.png" width="30%" />
-</p>
-
-<p>
-<img src="docs/images/修改提示词.png" width="45%" />
-<img src="docs/images/提示词配置.png" width="45%" />
+<img src="docs/images/提示词配置.png" width="30%" />
 </p>
 
 </details>
