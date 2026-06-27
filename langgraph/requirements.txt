@@ -1,0 +1,10 @@
+# LangGraph Agent 直接依赖
+langgraph>=1.0,<2.0
+langgraph-checkpoint-sqlite>=2.0,<3.0
+langchain-core>=0.3.0,<1.0
+
+# 引擎依赖（GraphRAG/engine/*）必须先安装 GraphRAG/requirements-engine.txt
+# 包含：pyyaml / sentence-transformers / numpy / torch / networkx / flask / flask-cors
+# 安装顺序：
+#   pip install -r ../GraphRAG/requirements-engine.txt
+#   pip install -r requirements.txt

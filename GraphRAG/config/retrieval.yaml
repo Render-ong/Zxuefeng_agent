@@ -1,0 +1,25 @@
+gpu:
+  device: "cuda:0"
+  vram_gb: 8
+
+embedding:
+  model: "BAAI/bge-small-zh-v1.5"   # 轻量中文模型，8GB 显存友好；可改为 BAAI/bge-m3
+  batch_size: 64
+  device: "auto"                     # auto | cuda | cpu
+
+vector:
+  major_expand_top_k: 12
+  major_expand_threshold: 0.52
+  rerank_enabled: true
+
+graphrag:
+  global_top_k: 3
+  global_threshold: 0.35
+  knowledge_top_k: 3
+  knowledge_threshold: 0.42
+  school_top_k: 5
+  school_threshold: 0.45
+
+ollama:
+  model: "qwen2.5:7b-instruct-q4_K_M"
+  url: "http://127.0.0.1:11434/api/generate"

@@ -1,0 +1,20 @@
+# 冲稳保位次带宽（按用户位次分段）
+bands:
+  - rank_max: 5000
+    chong: [0.92, 1.00]
+    wen:   [1.00, 1.15]
+    bao:   [1.15, 1.30]
+  - rank_max: 50000
+    chong: [0.88, 1.00]
+    wen:   [1.00, 1.25]
+    bao:   [1.25, 1.55]
+  - rank_max: 999999
+    chong: [0.85, 1.00]
+    wen:   [1.00, 1.30]
+    bao:   [1.30, 1.70]
+
+# 每档最多返回的不同学校数 / 每校最多专业数
+limits:
+  max_schools_per_tier: 12
+  max_majors_per_school: 2
+  sql_fetch_limit: 80

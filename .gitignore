@@ -1,0 +1,52 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+.pytest_cache/
+
+# 虚拟环境
+.venv/
+venv/
+env/
+
+# 数据库（admission_clean.db 由 .gz 解压生成，user 数据库按用户隔离）
+*.db
+*.db-shm
+*.db-wal
+
+# 用户数据（按用户隔离，不入仓）
+data/user/
+
+# 日志
+logs/
+*.log
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# 系统
+.DS_Store
+Thumbs.db
+
+# 敏感配置
+.env
+.env.local
+api_config.json
+config.json
+
+# 构建产物
+dist/
+build/
+node_modules/
+
+# 前端代码（不开源）
+xuefeng-miniprogram/
+
+# 内部协作文档
+GIT_COLLABORATION_GUIDE*.md
+deploy/修复报告.md

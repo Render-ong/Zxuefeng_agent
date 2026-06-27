@@ -1,0 +1,20 @@
+__pycache__
+*.pyc
+*.pyo
+.git
+.venv
+venv
+*.db
+*.db-shm
+*.db-wal
+logs/
+data/user/
+node_modules/
+*.md
+!GraphRAG/requirements-engine.txt
+!langgraph/requirements.txt
+
+# 前端代码不进镜像
+xuefeng-miniprogram/
+scripts/
+deploy/
