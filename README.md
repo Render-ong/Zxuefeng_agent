@@ -73,15 +73,18 @@ Xfeng_agent/
 <summary>点击查看界面截图</summary>
 
 <p>
-<img src="docs/images/img_scifi.png" width="30%" />
-<img src="docs/images/img_scifi1.png" width="30%" />
-<img src="docs/images/img_scifi12.png" width="30%" />
+<img src="docs/images/scifi1.png" width="30%" />
+<img src="docs/images/scifi2.png" width="30%" />
+<img src="docs/images/scifi3.png" width="30%" />
 </p>
 
 <p>
-<img src="docs/images/img_suit.png" width="30%" />
-<img src="docs/images/image.png" width="30%" />
-<img src="docs/images/提示词配置.png" width="30%" />
+<img src="docs/images/preview1.png" width="30%" />
+<img src="docs/images/preview2.png" width="30%" />
+<img src="docs/images/prompt_config.png" width="30%" />
+</p>
+<img src="docs/images/修改提示词.png" width="45%" />
+<img src="docs/images/提示词配置.png" width="45%" />
 </p>
 
 </details>
