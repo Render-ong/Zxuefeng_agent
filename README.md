@@ -4,7 +4,7 @@
 
 ## 数据来源与致谢
 
-本项目的知识体系和录取数据来源于 [ziqihe10-droid/xuefeng-agent](https://github.com/ziqihe10-droid/xuefeng-agent)（MIT 协议）。该团队从 8 本志愿填报专著、61 节专业视频课程（1500+ 分钟）中系统提炼了张雪峰老师的核心方法论，涵盖"冲稳保"策略、就业优先选专业、行业联盟（C9 / 国防七子 / 五院四系等 20+ 类）择校思路，并拆分为 17 个知识库模块。录取数据库覆盖 24 省、2024-2025 年、约 42 万条官方投档线，支持精确位次匹配。
+本项目的知识体系和录取数据来源于 [ziqihe10-droid/xuefeng-agent](https://github.com/ziqihe10-droid/xuefeng-agent)。ziqihe10-droid从 8 本志愿填报专著、61 节专业视频课程（1500+ 分钟）中系统提炼了张雪峰老师的核心方法论，涵盖"冲稳保"策略、就业优先选专业、行业联盟（C9 / 国防七子 / 五院四系等 20+ 类）择校思路，并拆分为 17 个知识库模块。录取数据库覆盖 24 省、2024-2025 年、约 42 万条官方投档线，支持精确位次匹配。
 
 本项目在此基础上，独立构建了全新的技术架构：
 
@@ -94,24 +94,21 @@ LLM_MODEL=deepseek-v4-flash        # 模型名称
 # ── 联网搜索（可选）────────────────────────
 TAVILY_KEY=tvly-xxxxxxxxxxxx       # Tavily Key（从 tavily.com 获取，不填则搜索功能降级）
 
-# ── 微信小程序（仅 HTTP 服务需要）─────────────
-# WX_APPID=                         # 小程序 AppID
-# WX_SECRET=                        # 小程序 AppSecret
 ```
 
 > 配置优先级：环境变量 > `.env` 文件 > 交互式输入
 
-如果使用其他兼容 OpenAI 格式的服务商（如 Moonshot、通义千问等），只需修改 `LLM_API_URL` 和 `LLM_MODEL`：
+如果使用其他兼容 OpenAI 格式的服务商（如 deepseek、通义千问等），需修改 `LLM_API_URL` 和 `LLM_MODEL`：
 
 ```bash
-# 示例：使用 Moonshot
+# 示例：使用 deepseek
 LLM_API_KEY=sk-xxxxxxxxxxxx
-LLM_API_URL=https://api.moonshot.cn/v1
-LLM_MODEL=moonshot-v1-8k
+LLM_API_URL=https://api.deepseek.com
+LLM_MODEL=deepseek-v4-flash
 
 # 示例：使用 OpenAI
 LLM_API_KEY=sk-xxxxxxxxxxxx
-LLM_API_URL=https://api.openai.com/v1
+LLM_API_URL=https://api.openai.com
 LLM_MODEL=gpt-4o
 ```
 
@@ -124,6 +121,7 @@ python chat.py
 启动后会自动加载 `.env` 配置，首次运行会提示输入 API Key（也可提前写好 `.env` 免去输入）。
 
 交互命令：
+
 - 直接输入消息开始对话
 - `/new` — 开始新对话
 - `/list` — 查看历史对话
@@ -149,15 +147,15 @@ docker run -p 5000:5000 --env-file .env xuefeng-agent
 
 ## 技术栈
 
-| 组件 | 技术 |
-|------|------|
-| Web 框架 | Flask + Gunicorn |
-| Agent 框架 | LangGraph（状态机多轮对话） |
-| LLM | DeepSeek API |
-| 检索引擎 | 向量检索（sentence-transformers + numpy）、SQL 查询、知识图谱 |
-| 联网搜索 | Tavily API |
-| 数据库 | SQLite（对话/画像持久化 + checkpoint） |
-| 部署 | Docker 容器，腾讯云开发 CloudBase 云托管 |
+| 组件       | 技术                                              |
+| -------- | ----------------------------------------------- |
+| Web 框架   | Flask + Gunicorn                                |
+| Agent 框架 | LangGraph（状态机多轮对话）                              |
+| LLM      | DeepSeek API                                    |
+| 检索引擎     | 向量检索（sentence-transformers + numpy）、SQL 查询、知识图谱 |
+| 联网搜索     | Tavily API                                      |
+| 数据库      | SQLite（对话/画像持久化 + checkpoint）                   |
+| 部署       | Docker 容器，腾讯云开发 CloudBase 云托管                   |
 
 ## API 接口
 
@@ -165,12 +163,12 @@ docker run -p 5000:5000 --env-file .env xuefeng-agent
 
 核心端点：
 
-| 方法 | 路径 | 说明 |
-|------|------|------|
-| POST | `/chat` | 多轮对话（主入口） |
-| GET | `/conversations` | 获取对话列表 |
-| GET | `/conversations/:id` | 获取对话详情 |
-| DELETE | `/conversations/:id` | 删除对话 |
+| 方法     | 路径                   | 说明        |
+| ------ | -------------------- | --------- |
+| POST   | `/chat`              | 多轮对话（主入口） |
+| GET    | `/conversations`     | 获取对话列表    |
+| GET    | `/conversations/:id` | 获取对话详情    |
+| DELETE | `/conversations/:id` | 删除对话      |
 
 ## 部署
 
