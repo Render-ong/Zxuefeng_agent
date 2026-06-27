@@ -2,6 +2,19 @@
 
 基于 GraphRAG 和 LangGraph 的智能升学指导 Agent，提供个性化的高考志愿填报建议。
 
+## 数据来源与致谢
+
+本项目的录取数据库来源于 [ziqihe10-droid/xuefeng-agent](https://github.com/ziqihe10-droid/xuefeng-agent)（MIT 协议）。该项目系统性地提炼了张雪峰老师的志愿填报方法论，将"冲稳保"策略、专业就业优先原则、地域偏好分析等核心理念转化为可查询的结构化数据，构建了覆盖 **24 省 × 2024-2025 年、约 42 万条**官方投档线记录的本地数据库，并配套了专业的志愿填报知识库和智能问答系统。
+
+本项目在此数据基础上，独立构建了全新的技术架构：
+
+- **GraphRAG 检索引擎**：SQL 冲稳保查询 + 向量语义检索 + 知识图谱子图召回，三路混合检索
+- **LangGraph 状态机 Agent**：analyze → ask → recommend → generate 多节点编排，支持多轮画像收集和意图路由
+- **联网搜索增强**：集成 Tavily API 实时检索最新招生政策、分数线变动，作为本地数据库的动态补充
+- **院校基础数据**（`GraphRAG/data/seeds/`）：学校标签（985/211/C9）、城市归属、省份映射、招生政策等公开信息
+
+感谢原项目作者的数据整理工作，为本项目提供了坚实的数据基础。
+
 ## 项目结构
 
 ```
@@ -175,6 +188,14 @@ docker run -p 5000:5000 --env-file .env xuefeng-agent
 3. 提交更改：`git commit -m "feat: add your feature"`
 4. 推送分支：`git push origin feature/your-feature`
 5. 创建 Pull Request
+
+## 数据来源与致谢
+
+- **录取数据库**（`GraphRAG/admission_clean.db.gz`）：来源于 [ziqihe10-droid/xuefeng-agent](https://github.com/ziqihe10-droid/xuefeng-agent) 项目（MIT 协议），原始数据为各省教育考试院官方投档线，覆盖 24 省 × 2024-2025 年，约 42 万条记录
+- **院校基础数据**（`GraphRAG/data/seeds/`）：学校标签（985/211/C9）、城市归属、省份映射、招生政策等均为公开信息
+- **联网搜索**：通过 Tavily API 实时检索最新招生政策、分数线变动等信息，作为数据库的动态补充
+
+本项目的检索引擎、Agent 架构、对话系统均为独立开发，与上述参考项目无代码层面的关联。
 
 ## 开源协议
 
