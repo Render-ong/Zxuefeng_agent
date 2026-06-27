@@ -72,24 +72,20 @@ Xfeng_agent/
 <details>
 <summary>点击查看界面截图</summary>
 
-**科技风格主题**
-
 <p>
-<img src="docs/images/img_scifi.png" width="30%" alt="科技风格 - 主界面" />
-<img src="docs/images/img_scifi1.png" width="30%" alt="科技风格 - 对话界面" />
-<img src="docs/images/img_scifi12.png" width="30%" alt="科技风格 - 推荐结果" />
+<img src="docs/images/img_scifi.png" width="30%" />
+<img src="docs/images/img_scifi1.png" width="30%" />
+<img src="docs/images/img_scifi12.png" width="30%" />
 </p>
 
-**商务风格主题**
-
 <p>
-<img src="docs/images/img_suit.png" width="45%" alt="商务风格 - 主界面" />
+<img src="docs/images/img_suit.png" width="30%" />
+<img src="docs/images/image.png" width="30%" />
 </p>
 
-**提示词配置**
-
 <p>
-<img src="docs/images/修改提示词.png" width="60%" alt="提示词配置界面" />
+<img src="docs/images/修改提示词.png" width="45%" />
+<img src="docs/images/提示词配置.png" width="45%" />
 </p>
 
 </details>
